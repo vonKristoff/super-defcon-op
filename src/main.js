@@ -60,6 +60,9 @@ function init() {
   directionalLight.shadow.mapSize.height = 2048;
   scene.add(directionalLight);
 
+  directionalLight.intensity = 3;
+  ambientLight.intensity = 1.5;
+
   const pointLight1 = new THREE.PointLight(0x667eea, 0.5);
   pointLight1.position.set(-5, 5, -5);
   scene.add(pointLight1);
@@ -266,7 +269,7 @@ init();
 
 // Auto-load default model on startup
 // Place your model in the public folder (e.g., public/models/your-model.glb)
-const DEFAULT_MODEL_PATH = "/assets/AtomPong_Model_Baked.glb"; // Change this to your model path
+const DEFAULT_MODEL_PATH = "/assets/Game_Model_Baked.glb"; // Change this to your model path
 
 // Uncomment the next line to auto-load the default model
 loadModelFromPath(DEFAULT_MODEL_PATH);

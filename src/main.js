@@ -29,12 +29,13 @@ function init() {
     alpha: true,
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  // renderer.setPixelRatio(window.devicePixelRatio);
   renderer.shadowMap.enabled = true;
   // renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   // renderer.outputEncoding = THREE.sRGBEncoding;
   // renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1;
+  // renderer.toneMappingExposure = 1;
 
   // Orbit Controls
   controls = new OrbitControls(camera, renderer.domElement);
@@ -45,7 +46,7 @@ function init() {
 
   // Lights
   ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-  scene.add(ambientLight);
+  // scene.add(ambientLight);
 
   directionalLight = new THREE.DirectionalLight(0xffffff, 0.1);
   directionalLight.position.set(5, 10, 7.5);
@@ -61,15 +62,15 @@ function init() {
   scene.add(directionalLight);
 
   directionalLight.intensity = 3;
-  ambientLight.intensity = 1.5;
+  ambientLight.intensity = 3;
 
   const pointLight1 = new THREE.PointLight(0x667eea, 0.5);
   pointLight1.position.set(-5, 5, -5);
-  scene.add(pointLight1);
+  // scene.add(pointLight1);
 
   const pointLight2 = new THREE.PointLight(0x764ba2, 0.5);
   pointLight2.position.set(5, -5, 5);
-  scene.add(pointLight2);
+  // scene.add(pointLight2);
 
   // Grid helper
   gridHelper = new THREE.GridHelper(10, 10, 0x84f484, 0x822222);
